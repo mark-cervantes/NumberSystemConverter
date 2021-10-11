@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/mark/NumberSystemConverter/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g   -o CMakeFiles/main.dir/src/Converter.cpp.o -c /home/mark/NumberSystemConverter/src/Converter.cpp",
+  "file": "/home/mark/NumberSystemConverter/src/Converter.cpp"
+},
+{
+  "directory": "/home/mark/NumberSystemConverter/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g   -o CMakeFiles/main.dir/src/Number.cpp.o -c /home/mark/NumberSystemConverter/src/Number.cpp",
+  "file": "/home/mark/NumberSystemConverter/src/Number.cpp"
+},
+{
+  "directory": "/home/mark/NumberSystemConverter/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9    -g   -o CMakeFiles/main.dir/src/main.cpp.o -c /home/mark/NumberSystemConverter/src/main.cpp",
+  "file": "/home/mark/NumberSystemConverter/src/main.cpp"
+}
+]
