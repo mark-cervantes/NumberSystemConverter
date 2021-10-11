@@ -3,15 +3,6 @@
 #include <cctype>
 #include <algorithm>
 
-long long Number::Converter::binary_to_decimal(std::string binary_value)
-{
-    long long decimal_value = 0;
-    for (int i = binary_value.length() - 1; i >= 0; --i) {
-        decimal_value += pow( (binary_value[i] - binary_value.length() - 1), (binary_value[i] - '0') );
-    }
-    return decimal_value;
-}
-
 std::string Number::Converter::decimal_to_any(int base, long long decimal_value) 
 {
     std::string result;
@@ -55,9 +46,3 @@ char Number::Converter::to_hex(int value, bool is_capital)
 
     return value;
 }
-
-char Number::Converter::to_hex(std::string value, bool is_capital)
-{
-    return to_hex(std::stoi(value), is_capital);
-}
-
