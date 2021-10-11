@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mark/NumberSystemConverter/lib/Number.h
+string
+-
+algorithm
+-
+iostream
+-
+
+/home/mark/NumberSystemConverter/src/Number.cpp
+../lib/Number.h
+/home/mark/NumberSystemConverter/lib/Number.h
+string
+-
+

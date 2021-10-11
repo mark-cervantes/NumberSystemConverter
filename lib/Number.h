@@ -2,16 +2,37 @@
 #define NUMBER_HPP 
 
 #include <string>
+#include <algorithm>
+
+#include <iostream>
 
 class Number
 {
+    protected:
+        void insert_delimiters(std::string * value, int spacing, std::string delimter);
+
+        int _base; 
+        std::string _value;
+
+    private:
+        /** 
+         * optimizer
+         * serves as cache kasi maraming conversions ang manggagaling sa decimal
+         * ex. imbis na oct -> decimal -> hex
+         * magigi na lang siyang _decimal_value -> hex nalang siya.
+         */
+        long long _decimal_value;
+
     public:
         Number (int base, std::string value) : _base(base), _value(value)
         { 
-            if (base == 10) {
-                _decimal_value = std::stoll(_value;
+            // remove any white spaces;
+            std::remove_if(value.begin(), value.end(),[](char c) { return std::isspace(c) ? true : false; });
+
+            if (_base == 10) {
+                _decimal_value = std::stoll(_value);
             } else {
-                _decimal_value = Number::Converter::any_to_decimal(base, value);
+                _decimal_value = Number::Converter::any_to_decimal(_base, _value);
             }
         }
 
@@ -30,7 +51,7 @@ class Number
          */
         struct Converter
         {
-            //static long long binary_to_decimal(std::string binary_value);
+            static long long binary_to_decimal(std::string binary_value);
             static std::string decimal_to_any(int base, long long decimal_value);
             static std::string binary_to_any(int base, std::string binary_value);
             static long long any_to_decimal(int base, std::string value);
@@ -40,20 +61,6 @@ class Number
             static char to_hex(int value, bool is_capital = true);
             static char to_hex(std::string value, bool is_capital = true);
         };
-    
-    protected:
-        int _base; 
-        std::string _value;
-
-    private:
-        /** 
-         * optimizer
-         * serves as cache kasi maraming conversions ang manggagaling sa decimal
-         * ex. imbis na oct -> decimal -> hex
-         * magigi na lang siyang _decimal_value -> hex nalang siya.
-         */
-        
-        long long _decimal_value;
 };
 
 #endif
