@@ -25,21 +25,27 @@ std::string Number::binary(int spacing, std::string delimiter)
 
 std::string Number::decimal(int spacing, std::string delimiter)
 {
-    std::string decimal = std::to_string(_decimal_value);
+    std::string decimal = _base == 10 ? _value :
+        std::to_string(_decimal_value);
+
     insert_delimiters(&decimal, spacing, delimiter);
     return decimal;
 }
 
 std::string Number::hex(int spacing, std::string delimiter)
 {
-    std::string hex = Number::Converter::decimal_to_any(16, _decimal_value);
+    std::string hex = _base == 16 ? _value : 
+        Number::Converter::decimal_to_any(16, _decimal_value);
+
     insert_delimiters(&hex, spacing, delimiter);
     return hex;
 }
 
 std::string Number::octal(int spacing, std::string delimiter)
 {
-    std::string octal = Number::Converter::decimal_to_any(8, _decimal_value);
+    std::string octal = _base == 8 ? _value : 
+        Number::Converter::decimal_to_any(8, _decimal_value);
+
     insert_delimiters(&octal, spacing, delimiter);
     return octal;
 }
